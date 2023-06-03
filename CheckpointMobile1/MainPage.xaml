@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CheckpointMobile1.MainPage" Background="#808080">
+
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" Padding="40">
+            <Label Text="Авторизация" FontSize="24" TextColor="White" HorizontalOptions="Center" Margin="0,0,0,30" />
+
+            <Entry x:Name="txtLogin" Placeholder="Логин" PlaceholderColor="White" TextColor="White" BackgroundColor="Transparent"
+               FontSize="16" Margin="0,0,0,15" />
+
+            <Entry x:Name="txtPassword" Placeholder="Пароль" PlaceholderColor="White" TextColor="White" BackgroundColor="Transparent"
+               FontSize="16" IsPassword="True" Margin="0,0,0,30" />
+
+            <Button x:Name="btnLogin" Text="Войти" BackgroundColor="White" TextColor="#339685" FontSize="18"
+                CornerRadius="5" HorizontalOptions="FillAndExpand" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

@@ -6,6 +6,8 @@ public partial class App : Application
 	{
 		InitializeComponent();
         Routing.RegisterRoute("ScannerPage", typeof(ScannerPage));
+        Routing.RegisterRoute("ProfilePage", typeof(ProfilePage));
+        Routing.RegisterRoute("SettingsPage", typeof(SettingsPage));
         MainPage = new AppShell();
 	}
 }

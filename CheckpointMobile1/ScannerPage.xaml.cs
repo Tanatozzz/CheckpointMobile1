@@ -111,4 +111,13 @@ public partial class ScannerPage : ContentPage
 
     }
 
+    private async void ProfilePageBtn_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("ProfilePage");
+    }
+
+    private async void SettingsPageBtn_Clicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("2", "2", "Ок");
+    }
 }

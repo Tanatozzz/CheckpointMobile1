@@ -12,7 +12,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.4*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -27,7 +27,43 @@
             <Label x:Name="INNLabel" Text="ИНН: "/>
             <Label Text="..................................................."/>
         </VerticalStackLayout>
-        <Button Text="Список доступных дверей" HeightRequest="50" WidthRequest="200" Grid.ColumnSpan="3" FontSize="12" Grid.Row="2" Clicked="Button_Clicked"/>
+        <VerticalStackLayout Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="2">
+            <Button Text="Список доступных дверей" HeightRequest="50" WidthRequest="200"  FontSize="12"  Clicked="Button_Clicked"/>
+            <ListView x:Name="lvAccessedCheckpoints">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Text="ID:" />
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding ID}" />
+
+                                <Label Grid.Row="0" Grid.Column="2" Text="Наименование:" />
+                                <Label Grid.Row="1" Grid.Column="3" Text="{Binding Title}" />
+
+                                <Label Grid.Row="0" Grid.Column="4" Text="Офис:" />
+                                <Label Grid.Row="1" Grid.Column="5" Text="{Binding TitleOffice}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+        
 
         <Image Source="Resources/Images/profile.png" Margin="10,0,0,0"/>
         <HorizontalStackLayout Grid.Column="1" Margin="10,0,0,0">
@@ -36,8 +72,8 @@
         </HorizontalStackLayout>
 
 
-        <ImageButton x:Name="ScannerPageBtn" Grid.Column="0" Grid.Row="4" Source="Resources/Images/camera.png" HeightRequest="64" WidthRequest="64" Clicked="ScannerPageBtn_Clicked"/>
-        <ImageButton x:Name="ProfilePageBtn" Grid.Column="1" Grid.Row="4" Source="Resources/Images/user.png" HeightRequest="64" WidthRequest="64"/>
-        <ImageButton x:Name="SettingsPageBtn" Grid.Column="2" Grid.Row="4" Source="Resources/Images/settings.png" HeightRequest="64" WidthRequest="64" Clicked="SettingsPageBtn_Clicked"/>
+        <ImageButton x:Name="ScannerPageBtn" Grid.Column="0" Grid.Row="4" Source="Resources/Images/camera.png" HeightRequest="48" WidthRequest="48" Clicked="ScannerPageBtn_Clicked"/>
+        <ImageButton x:Name="ProfilePageBtn" Grid.Column="1" Grid.Row="4" Source="Resources/Images/user.png" HeightRequest="48" WidthRequest="48"/>
+        <ImageButton x:Name="SettingsPageBtn" Grid.Column="2" Grid.Row="4" Source="Resources/Images/settings.png" HeightRequest="48" WidthRequest="48" Clicked="SettingsPageBtn_Clicked"/>
     </Grid>
 </ContentPage>

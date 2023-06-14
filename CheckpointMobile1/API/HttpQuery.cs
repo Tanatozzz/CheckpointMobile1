@@ -81,5 +81,32 @@ namespace CheckpointMobile1.API
             }
         }
 
+        public async Task<IEnumerable<CheckpointAccessedList>> GetEmployeeAccessibleCheckpoints(int employeeId)
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync($"EmployeeDoors/{employeeId}");
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    var checkpoints = JsonConvert.DeserializeObject<IEnumerable<CheckpointAccessedList>>(json);
+                    return checkpoints;
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    return Enumerable.Empty<CheckpointAccessedList>();
+                }
+                else
+                {
+                    throw new Exception($"Ошибка при выполнении запроса: {response.StatusCode}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Произошла ошибка отправки запроса на сервер(GetEmployeeAccessibleCheckpoints Query). Обратитесь к администратору системы.", ex.ToString());
+                return null;
+            }
+        }
+
     }
 }

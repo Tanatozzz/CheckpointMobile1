@@ -2,11 +2,25 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CheckpointMobile1.SettingsPage"
-             Title="SettingsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Настройки" Background="Gray" NavigationPage.HasNavigationBar="False" NavigationPage.HasBackButton="False">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Text="Выйти из аккаунта" WidthRequest="200" HeightRequest="50" Margin="0, 10, 0, 0" TextColor="Red" Grid.ColumnSpan="3" Grid.Row="0"
+                VerticalOptions="Start" Clicked="Button_Clicked"/>
+
+        <ImageButton x:Name="ScannerPageBtn" Grid.Column="0" Grid.Row="1" Source="Resources/Images/camera.png" HeightRequest="48" WidthRequest="48" Clicked="ScannerPageBtn_Clicked"/>
+        <ImageButton x:Name="ProfilePageBtn" Grid.Column="1" Grid.Row="1" Source="Resources/Images/user.png" HeightRequest="48" WidthRequest="48" Clicked="ProfilePageBtn_Clicked"/>
+        <ImageButton x:Name="SettingsPageBtn" Grid.Column="2" Grid.Row="1" Source="Resources/Images/settings.png" HeightRequest="48" WidthRequest="48"/>
+    </Grid>
 </ContentPage>

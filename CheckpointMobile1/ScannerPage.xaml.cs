@@ -18,10 +18,12 @@ public partial class ScannerPage : ContentPage
     public ScannerPage()
 	{
 		InitializeComponent();
-        //cameraView.BarCodeOptions = new()
-        //{
-        //    PossibleFormats = { ZXing.BarcodeFormat.QR_CODE }
-        //};
+        cameraView.BarCodeOptions = new()
+        {
+            TryHarder = true,
+            PossibleFormats = { ZXing.BarcodeFormat.QR_CODE }
+            
+        };
         HttpEmployee fff = new HttpEmployee();
     }
 
@@ -118,6 +120,6 @@ public partial class ScannerPage : ContentPage
 
     private async void SettingsPageBtn_Clicked(object sender, EventArgs e)
     {
-        await DisplayAlert("2", "2", "Ок");
+        await Shell.Current.GoToAsync("SettingsPage");
     }
 }

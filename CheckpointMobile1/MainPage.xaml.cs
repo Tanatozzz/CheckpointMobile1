@@ -9,6 +9,8 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
+        txtLogin.Text = null;
+        txtPassword.Text = null;
     }
 
     private async void Button_Clicked(object sender, EventArgs e)

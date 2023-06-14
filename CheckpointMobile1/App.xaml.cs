@@ -8,6 +8,7 @@ public partial class App : Application
         Routing.RegisterRoute("ScannerPage", typeof(ScannerPage));
         Routing.RegisterRoute("ProfilePage", typeof(ProfilePage));
         Routing.RegisterRoute("SettingsPage", typeof(SettingsPage));
+        Routing.RegisterRoute("MainPage", typeof(SettingsPage));
         MainPage = new AppShell();
 	}
 }
